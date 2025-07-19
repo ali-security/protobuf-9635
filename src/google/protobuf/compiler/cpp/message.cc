@@ -4573,6 +4573,9 @@ void MessageGenerator::GenerateCopyFrom(io::Printer* p) {
           "$DCHK$(!::_pbi::IsDescendant(*this, from))\n"
           "    << \"Source of CopyFrom cannot be a descendant of the "
           "target.\";\n"
+          "$DCHK$(!::_pbi::IsDescendant(from, *this))\n"
+          "    << \"Target of CopyFrom cannot be a descendant of the "
+          "source.\";\n"
           "Clear();\n");
     } else {
       format(
